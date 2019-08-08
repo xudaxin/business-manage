@@ -12,7 +12,6 @@
 </head>
 <body>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>修改用户信息：</h1>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原信息
 <br/><br/>
 <%--<form action="/reallyupdate" method="post">--%>
     <%--&lt;%&ndash;<span>用户名</span>&ndash;%&gt;--%>
@@ -20,25 +19,31 @@
     <%--&lt;%&ndash;<input type="submit" value="提交" />&ndash;%&gt;--%>
 <%--</form>--%>
 
-<form action="/reallyupdate" method="post">
+<form action="/user/reallyupdateuser" method="post">
     <span>用户id：</span>
-    <input type="text" value="${userupdate.userid}" name="userid"  readonly="true"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>id是不可以修改的</span>
+    <input type="text" value="${updateuser.id}" name="id"  readonly="true"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>id是不可以修改的</span>
     </br> </br>
     <span>用户名：</span>
-    <input type="text" name="username"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${userupdate.username}</span>
+    <input type="text" value="${updateuser.username}" name="username"/>
     </br></br>
-    <span>电话：</span>
-    <input type="tel" name="phone"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${userupdate.phone}</span>
-    </br> </br>
     <span>密码：</span>
-    <input type="password" name="password"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${userupdate.password}</span>
+    <input type="password" value="${updateuser.password}" name="password"/>
     </br> </br>
     <span>邮箱：</span>
-    <input type="email" name="email"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${userupdate.email}</span>
+    <input type="email" value="${updateuser.email}" name="email"/>
     </br> </br>
-    <span>性别：</span>
-    <input type="text" name="sex"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${userupdate.sex}</span>
+    <span>电话：</span>
+    <input type="tel" value="${updateuser.phone}" name="phone"/>
     </br> </br>
+    <span>问题：</span>
+    <input type="text" value="${updateuser.question}" name="question"/>
+    </br> </br>
+    <span>回答：</span>
+    <input type="text" value="${updateuser.answer}" name="answer"/>
+    </br></br>
+    <span>权限：</span>
+    <input type="text" value="${updateuser.role}" name="role"/>
+    </br></br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="提交" />
 </form>
 </body>

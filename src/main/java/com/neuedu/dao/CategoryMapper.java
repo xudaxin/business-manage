@@ -1,6 +1,9 @@
 package com.neuedu.dao;
 
 import com.neuedu.pojo.Category;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.List;
 
 public interface CategoryMapper {
@@ -42,5 +45,5 @@ public interface CategoryMapper {
      *
      * @mbggenerated
      */
-    int updateByPrimaryKey(Category record);
+    int updateByPrimaryKey(@Param("category") Category record);
 }
