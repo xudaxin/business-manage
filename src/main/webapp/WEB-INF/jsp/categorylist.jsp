@@ -15,7 +15,10 @@
 <body>
 
 <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎${admintor.username}来到类别管理页</h1>
-<br/>
+<br/><a href="/user/index">查看用户信息</a>
+<br/><br/>
+<br/><a href="/user/product">查看商品信息</a>
+<br/><br/>
 <a href="/user/insertcategory">添加类别信息</a>
 <br/>
 <table border="1" cellpadding="10" cellspacing="5">

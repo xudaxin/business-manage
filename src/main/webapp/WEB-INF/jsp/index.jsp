@@ -17,9 +17,11 @@
 <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎${admintor.username}来到首页</h1>
 <br/>
 <a href="/user/find">查看类别信息</a>
-<br/>
+<br/><br/>
+<a href="/user/product">查看商品信息</a>
+<br/><br/>
 <a href="/user/insertUser">添加用户信息</a>
-<br/>
+<br/><br/>
 <table border="1" cellpadding="10" cellspacing="5">
 
 <tr>
