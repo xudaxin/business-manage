@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c"
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>添加商品信息</title>
@@ -19,8 +21,22 @@
     <span>商品名：</span>
     <input type="text" name="name"/>
     </br></br>
+    <%--<span>父id：</span>--%>
+    <%--<input type="text" name="categoryId"/>--%>
+    <%--</br></br>--%>
     <span>父id：</span>
-    <input type="text" name="categoryId"/>
+    <select name="categoryId">
+
+        <c:forEach items="${categoryMessagelist}" var="categoryid">
+
+            <option value="${categoryid.id}">${categoryid.id}</option>
+
+        </c:forEach>
+
+
+    </select>
+
+
     </br></br>
     <span>副标题：</span>
     <input type="text" name="subtitle"/>
@@ -36,7 +52,8 @@
     </br></br>
 
     <%--<span>商品状态：</span>--%>
-    <%--<input type="<select name=" " id=""></select>" name="username"/>--%>
+    <%--&lt;%&ndash;<input type="<select name=" " id=""></select>" name="username"/>&ndash;%&gt;--%>
+    <%--<select name=""--%>
     <%--</br></br>--%>
 
     <span>图片上传：</span>

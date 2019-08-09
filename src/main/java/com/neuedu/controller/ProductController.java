@@ -1,5 +1,6 @@
 package com.neuedu.controller;
 
+import com.neuedu.pojo.Category;
 import com.neuedu.pojo.Product;
 import com.neuedu.service.impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,10 @@ public class ProductController {
     }
 
     @RequestMapping("/addproduct")
-    public String addproduct(){
+    public String addproduct(HttpSession httpSession){
+        //获取数据库中所有的商品类别信息，在类别表查出所有id
+        List<Category> categorylist=productService.findAllCategory();
+        httpSession.setAttribute("categoryMessagelist",categorylist);
         return "addproduct";
     }
 
@@ -102,6 +106,7 @@ public class ProductController {
     public String updateProduct(@PathVariable("id") int id,HttpSession httpSession){
         //通过id找到商品信息
         Product product=productService.findOneById(id);
+
         httpSession.setAttribute("updateproduct",product);
         return "updateproduct";
 

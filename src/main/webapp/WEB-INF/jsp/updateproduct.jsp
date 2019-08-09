@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: xudaxin
@@ -28,7 +29,40 @@
     </br></br>
 
     <span>父id：</span>
-    <input type="text" value="${updateproduct.categoryId}" name="categoryId"/>
+    <%--<input type="text" value="${updateproduct.categoryId}" name="categoryId"/>--%>
+
+    <%--<select name="categoryId">--%>
+
+        <%--<c:forEach items="${categoryMessagelist}" var="categoryid">--%>
+
+            <%--<c:if test="${updateproduct.categoryId}==${categoryid.id}">--%>
+                <%--<option value="${categoryid.id}">(原信息id)${categoryid.id}</option>--%>
+            <%--</c:if>--%>
+            <%--<c:otherwise>--%>
+                <%--<option value="${categoryid.id}">(新信息id)${categoryid.id}</option>--%>
+            <%--</c:otherwise>--%>
+
+            <%--&lt;%&ndash;<c:if test="${updateproduct.categoryId}！=${categoryid.id}">&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<option value="${categoryid.id}">(新信息id)${categoryid.id}</option>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;</c:if>&ndash;%&gt;--%>
+        <%--</c:forEach>--%>
+    <%--</select>--%>
+
+
+            <select name="categoryId">
+
+                <c:forEach items="${categoryMessagelist}" var="categoryid">
+
+                    <option value="${categoryid.id}">${categoryid.id}</option>
+
+                </c:forEach>
+
+
+            </select>
+    &nbsp;&nbsp;原父id：${updateproduct.categoryId}
+
+
+
     </br></br>
 
     <span>副标题：</span>
