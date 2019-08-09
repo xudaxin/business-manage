@@ -24,7 +24,7 @@ public class CategoryController {
     }
     @RequestMapping("categorylist")
     public String categorylist(){
-        return "categorylist";
+        return "category/list";
     }
 
     @RequestMapping("/update/{id}")
@@ -32,7 +32,7 @@ public class CategoryController {
         //查询信息
         Category category=categoryService.findBycateid(categoryid);
         httpSession.setAttribute("updatecategory",category);
-        return "updatecategory";
+        return "category/updatecategory";
     }
 
     @RequestMapping("/reallyupdate")
@@ -44,7 +44,7 @@ public class CategoryController {
             //再次登录
             return "redirect:/user/find";//不太理解????????????绝对路径
         }
-        return "updatecategory";
+        return "category/updatecategory";
     }
 
 
@@ -68,6 +68,11 @@ public class CategoryController {
         int result=categoryService.deletecate(id);
         return "redirect:/user/find";
     }
+
+//    @RequestMapping("xianshicategory")
+//    public String xianshicategory(){
+//
+//    }
 
 
 }

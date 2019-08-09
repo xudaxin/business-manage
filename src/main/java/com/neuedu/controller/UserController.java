@@ -21,13 +21,18 @@ public class UserController {
     @Autowired
     UserServiceImpl userService;
 
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    @RequestMapping(value = "/login")
     public String reallylogin(){
         return "login";
     }
 
     @RequestMapping(value = "/login",method =RequestMethod.POST )
     public String reallylogin(UserInfo userInfo, HttpSession httpSession,HttpServletResponse response){
+
+//        if(userInfo==null){
+//            userInfo=(UserInfo) httpSession.getAttribute("admintor");
+//        }
+
         UserInfo userInfo1=userService.login(userInfo);
         //七天免登录的实现
         Cookie cookieusername= new Cookie("username",userInfo1.getUsername());
@@ -45,14 +50,14 @@ public class UserController {
 
     @RequestMapping("/index")  //为啥不用加"/"号？？？？？？？？？？？？？
     public String index(){
-        return "index";
+        return "user/index";
     }
 
     @RequestMapping("updateuser/{id}")
     public String update(@PathVariable("id")int id,HttpSession httpSession){
         UserInfo userInfo=userService.findUserByid(id);
         httpSession.setAttribute("updateuser",userInfo);
-        return "update";
+        return "user/update";
     }
 
     @RequestMapping("/reallyupdateuser")
@@ -63,12 +68,12 @@ public class UserController {
             UserInfo admin=(UserInfo) httpSession.getAttribute("admintor");
             return reallylogin(admin,httpSession,response);
         }
-        return "index";
+        return "user/index";
     }
 
     @RequestMapping("/insertUser")
     public String insertUser(){
-        return "adduser";
+        return "user/adduser";
     }
 
 
@@ -79,7 +84,7 @@ public class UserController {
             UserInfo admin=(UserInfo) httpSession.getAttribute("admintor");
             return reallylogin(admin,httpSession,response);
         }
-        return "adduser";
+        return "user/adduser";
     }
 
 
@@ -95,7 +100,14 @@ public class UserController {
 //            UserInfo userInfo1=userService.login(admin);//为了判断是否把自己删除了
             return "redirect:/user/index";  //上面调用这个方法没出现错误可能是因为不是restful请求？？？？？？？？？？？？？？？？
         }
-        return "index";
+        return "user/index";
+    }
+
+    @RequestMapping("/xianshi")
+    public String xianshi(HttpSession httpSession){
+        List<UserInfo>userInfos=userService.findAllUserInfo();
+        httpSession.setAttribute("userInfos",userInfos);
+        return "redirect:index";
     }
 
 
